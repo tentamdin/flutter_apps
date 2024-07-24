@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roll_dice/expense_tracker/expenses.dart';
 import 'package:roll_dice/meals/screens/categories.dart';
+import 'package:roll_dice/meals/screens/tabs.dart';
 import 'package:roll_dice/quiz_app/quiz.dart';
 import 'package:roll_dice/roll_dice/gradient_container.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,9 +47,6 @@ class MyApp extends StatelessWidget {
 // meals app
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: theme,
-      home: const Categories(),
-    );
+    return MaterialApp(theme: theme, home: const TabsScreen());
   }
 }
