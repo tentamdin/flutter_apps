@@ -5,6 +5,7 @@ import 'package:roll_dice/meals/screens/tabs.dart';
 import 'package:roll_dice/quiz_app/quiz.dart';
 import 'package:roll_dice/roll_dice/gradient_container.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:roll_dice/shopping_list/widgets/grocery_list.dart';
 
 final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
@@ -45,8 +46,26 @@ class MyApp extends StatelessWidget {
   // }
 
 // meals app
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(theme: theme, home: const TabsScreen());
+  // }
+
+// shooping list app
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: theme, home: const TabsScreen());
+    return MaterialApp(
+      title: 'Flutter Groceries',
+      theme: ThemeData.dark().copyWith(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 147, 229, 250),
+          brightness: Brightness.dark,
+          surface: const Color.fromARGB(255, 42, 51, 59),
+        ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 50, 58, 60),
+      ),
+      home: const GroceryList(),
+    );
   }
 }
