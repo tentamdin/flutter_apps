@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:roll_dice/expense_tracker/expenses.dart';
 import 'package:roll_dice/meals/screens/categories.dart';
 import 'package:roll_dice/meals/screens/tabs.dart';
@@ -15,7 +16,8 @@ final theme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(),
 );
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
