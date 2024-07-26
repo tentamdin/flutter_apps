@@ -4,32 +4,56 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:roll_dice/fav_place/providers/user_places.dart';
 import 'package:roll_dice/fav_place/screens/add_place.dart';
-import 'package:roll_dice/fav_place/widgets/place_list.dart';
+import 'package:roll_dice/fav_place/widgets/places_list.dart';
 
-class PlaceScreen extends ConsumerWidget {
-  const PlaceScreen({super.key});
+class PlacesScreen extends ConsumerStatefulWidget {
+  const PlacesScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final userPlaces = ref.watch(userPlaceProvider);
+  ConsumerState<PlacesScreen> createState() {
+    return _PlacesScreenState();
+  }
+}
+
+class _PlacesScreenState extends ConsumerState<PlacesScreen> {
+  late Future<void> _placesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _placesFuture = ref.read(userPlacesProvider.notifier).loadPlaces();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final userPlaces = ref.watch(userPlacesProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Your Places"),
+        title: const Text('Your Places'),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const AddPlaceScreen()));
-            },
             icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const AddPlaceScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: PlaceList(
-          places: userPlaces,
+        child: FutureBuilder(
+          future: _placesFuture,
+          builder: (context, snapshot) =>
+              snapshot.connectionState == ConnectionState.waiting
+                  ? const Center(child: CircularProgressIndicator())
+                  : PlacesList(
+                      places: userPlaces,
+                    ),
         ),
       ),
     );

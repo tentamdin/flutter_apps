@@ -4,8 +4,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:roll_dice/fav_place/models/place.dart';
 import 'package:roll_dice/fav_place/screens/place_detail.dart';
 
-class PlaceList extends StatelessWidget {
-  const PlaceList({super.key, required this.places});
+class PlacesList extends StatelessWidget {
+  const PlacesList({super.key, required this.places});
 
   final List<Place> places;
 
@@ -37,7 +37,7 @@ class PlaceList extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        PlaceDetailsScreen(place: places[index]),
+                        PlaceDetailScreen(place: places[index]),
                   ),
                 );
               },
