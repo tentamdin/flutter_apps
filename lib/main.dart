@@ -11,45 +11,45 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:roll_dice/shopping_list/widgets/grocery_list.dart';
 
 // meal app theme
-// final theme = ThemeData(
-//   colorScheme: ColorScheme.fromSeed(
-//     brightness: Brightness.dark,
-//     seedColor: const Color.fromARGB(255, 131, 57, 0),
-//   ),
-//   textTheme: GoogleFonts.latoTextTheme(),
-// );
+final theme = ThemeData(
+  colorScheme: ColorScheme.fromSeed(
+    brightness: Brightness.dark,
+    seedColor: const Color.fromARGB(255, 131, 57, 0),
+  ),
+  textTheme: GoogleFonts.latoTextTheme(),
+);
 
 // favorite place app theme
-final colorScheme = ColorScheme.fromSeed(
-  brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 102, 6, 247),
-  background: const Color.fromARGB(255, 56, 49, 66),
-);
+// final colorScheme = ColorScheme.fromSeed(
+//   brightness: Brightness.dark,
+//   seedColor: const Color.fromARGB(255, 102, 6, 247),
+//   background: const Color.fromARGB(255, 56, 49, 66),
+// );
 
-final theme = ThemeData().copyWith(
-  useMaterial3: true,
-  scaffoldBackgroundColor: colorScheme.background,
-  colorScheme: colorScheme,
-  textTheme: GoogleFonts.ubuntuCondensedTextTheme().copyWith(
-    titleSmall: GoogleFonts.ubuntuCondensed(
-      fontWeight: FontWeight.bold,
-    ),
-    titleMedium: GoogleFonts.ubuntuCondensed(
-      fontWeight: FontWeight.bold,
-    ),
-    titleLarge: GoogleFonts.ubuntuCondensed(
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-);
+// final theme = ThemeData().copyWith(
+//   useMaterial3: true,
+//   scaffoldBackgroundColor: colorScheme.background,
+//   colorScheme: colorScheme,
+//   textTheme: GoogleFonts.ubuntuCondensedTextTheme().copyWith(
+//     titleSmall: GoogleFonts.ubuntuCondensed(
+//       fontWeight: FontWeight.bold,
+//     ),
+//     titleMedium: GoogleFonts.ubuntuCondensed(
+//       fontWeight: FontWeight.bold,
+//     ),
+//     titleLarge: GoogleFonts.ubuntuCondensed(
+//       fontWeight: FontWeight.bold,
+//     ),
+//   ),
+// );
 
 // expense tracker theme
-var kColorScheme =
-    ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 96, 59, 181));
+// var kColorScheme =
+//     ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 96, 59, 181));
 
-var kDarkColorScheme = ColorScheme.fromSeed(
-    brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 5, 95, 125));
+// var kDarkColorScheme = ColorScheme.fromSeed(
+//     brightness: Brightness.dark,
+//     seedColor: const Color.fromARGB(255, 5, 95, 125));
 
 void main() async {
   // await dotenv.load(fileName: ".env");
@@ -79,52 +79,52 @@ class MyApp extends StatelessWidget {
   // }
 
 // Expense tracker
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        darkTheme: ThemeData.dark().copyWith(
-          colorScheme: kDarkColorScheme,
-          cardTheme: const CardTheme().copyWith(
-            color: kDarkColorScheme.secondaryContainer,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: kDarkColorScheme.primaryContainer,
-                foregroundColor: kDarkColorScheme.onPrimaryContainer),
-          ),
-        ),
-        theme: ThemeData().copyWith(
-          useMaterial3: true,
-          colorScheme: kColorScheme,
-          appBarTheme: const AppBarTheme().copyWith(
-              backgroundColor: kColorScheme.onPrimaryContainer,
-              foregroundColor: kColorScheme.primaryContainer),
-          cardTheme: const CardTheme().copyWith(
-            color: kColorScheme.secondaryContainer,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: kColorScheme.primaryContainer,
-            ),
-          ),
-          textTheme: ThemeData().textTheme.copyWith(
-                titleLarge: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: kColorScheme.onSecondaryContainer,
-                    fontSize: 16),
-              ),
-        ),
-        themeMode: ThemeMode.system,
-        home: const Expenses());
-  }
-
-// meals app
   // @override
   // Widget build(BuildContext context) {
-  //   return MaterialApp(theme: theme, home: const TabsScreen());
+  //   return MaterialApp(
+  //       darkTheme: ThemeData.dark().copyWith(
+  //         colorScheme: kDarkColorScheme,
+  //         cardTheme: const CardTheme().copyWith(
+  //           color: kDarkColorScheme.secondaryContainer,
+  //           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  //         ),
+  //         elevatedButtonTheme: ElevatedButtonThemeData(
+  //           style: ElevatedButton.styleFrom(
+  //               backgroundColor: kDarkColorScheme.primaryContainer,
+  //               foregroundColor: kDarkColorScheme.onPrimaryContainer),
+  //         ),
+  //       ),
+  //       theme: ThemeData().copyWith(
+  //         useMaterial3: true,
+  //         colorScheme: kColorScheme,
+  //         appBarTheme: const AppBarTheme().copyWith(
+  //             backgroundColor: kColorScheme.onPrimaryContainer,
+  //             foregroundColor: kColorScheme.primaryContainer),
+  //         cardTheme: const CardTheme().copyWith(
+  //           color: kColorScheme.secondaryContainer,
+  //           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  //         ),
+  //         elevatedButtonTheme: ElevatedButtonThemeData(
+  //           style: ElevatedButton.styleFrom(
+  //             backgroundColor: kColorScheme.primaryContainer,
+  //           ),
+  //         ),
+  //         textTheme: ThemeData().textTheme.copyWith(
+  //               titleLarge: TextStyle(
+  //                   fontWeight: FontWeight.bold,
+  //                   color: kColorScheme.onSecondaryContainer,
+  //                   fontSize: 16),
+  //             ),
+  //       ),
+  //       themeMode: ThemeMode.system,
+  //       home: const Expenses());
   // }
+
+// meals app
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(theme: theme, home: const TabsScreen());
+  }
 
 // shooping list app
   // @override

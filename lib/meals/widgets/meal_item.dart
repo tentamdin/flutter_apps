@@ -3,8 +3,12 @@ import 'package:roll_dice/meals/models/meals.dart';
 import 'package:roll_dice/meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class MealsItem extends StatelessWidget {
-  const MealsItem({required this.meal, required this.onSelectMeal, super.key});
+class MealItem extends StatelessWidget {
+  const MealItem({
+    super.key,
+    required this.meal,
+    required this.onSelectMeal,
+  });
 
   final Meal meal;
   final void Function(Meal meal) onSelectMeal;
@@ -37,55 +41,56 @@ class MealsItem extends StatelessWidget {
             FadeInImage(
               placeholder: MemoryImage(kTransparentImage),
               image: NetworkImage(meal.imageUrl),
+              fit: BoxFit.cover,
+              height: 200,
+              width: double.infinity,
             ),
             Positioned(
-                bottom: 0,
-                right: 0,
-                left: 0,
-                child: Container(
-                  color: Colors.black54,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
-                  child: Column(children: [
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                color: Colors.black54,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
+                child: Column(
+                  children: [
                     Text(
                       meal.title,
                       maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       softWrap: true,
+                      overflow: TextOverflow.ellipsis, // Very long text ...
                       style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                    const SizedBox(
-                      height: 12,
-                    ),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MealItemTrait(
                           icon: Icons.schedule,
-                          label: "${meal.duration} min",
+                          label: '${meal.duration} min',
                         ),
-                        const SizedBox(
-                          width: 12,
-                        ),
+                        const SizedBox(width: 12),
                         MealItemTrait(
                           icon: Icons.work,
                           label: complexityText,
                         ),
-                        const SizedBox(
-                          width: 12,
-                        ),
+                        const SizedBox(width: 12),
                         MealItemTrait(
                           icon: Icons.attach_money,
                           label: affordabilityText,
-                        ),
+                        )
                       ],
                     ),
-                  ]),
-                ))
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
